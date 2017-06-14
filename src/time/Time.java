@@ -1,5 +1,8 @@
 package time;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import interfaces.NullObject;
 import util.IntegerUtil;
 import util.MathUtil;
@@ -68,6 +71,15 @@ public class Time implements Comparable<Time>, NullObject {
      *            The time units.
      */
     public Time(int... times) {
+        ms = stringToTime(times);
+    }
+
+    /**
+     * Converts 
+     * @param times
+     * @return
+     */
+    private long stringToTime(int... times) {
         int[] actual = new int[4];
 
         for (int i = 0; i < times.length; ++i) {
@@ -78,7 +90,7 @@ public class Time implements Comparable<Time>, NullObject {
         this.seconds = actual[2];
         this.milliseconds = actual[3];
 
-        ms = milliseconds + MS_PER_SEC * (seconds + SEC_PER_MIN * (minutes + MIN_PER_HOUR * hours));
+        return milliseconds + MS_PER_SEC * (seconds + SEC_PER_MIN * (minutes + MIN_PER_HOUR * hours));
     }
 
     /**
@@ -249,6 +261,23 @@ public class Time implements Comparable<Time>, NullObject {
             throw new IllegalArgumentException("No such operator " + args[1] + ".");
         }
         System.out.println(result);
+    }
+
+    /**
+     * Retrieves the time length as hours.
+     * 
+     * @return
+     *         the time length as hours.
+     */
+    public double hours() {
+        return ((double) ms) / (MS_PER_SEC * SEC_PER_MIN * MIN_PER_HOUR);
+    }
+
+    public static List<Double> asHours(String[] times) {
+        List<Double> hours = new ArrayList<Double>();
+        for (String time : times) {
+
+        }
     }
 
 }
