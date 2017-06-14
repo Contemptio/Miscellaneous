@@ -31,11 +31,14 @@ public class FileSearcher {
             error(path + " does not exist.");
         }
 
+        List<String> fileNames = new ArrayList<String>();
         for (File file : recursiveFileList(path)) {
-
+            if (fileAsString(file).equals("")) {
+                
+            }
         }
     }
-
+    
     /**
      * Returns {@link File} objects of all files recursively from a directory.
      * 
