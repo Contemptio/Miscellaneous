@@ -78,4 +78,8 @@ public class Pokemon implements Comparable<Pokemon> {
         System.out.println(mon.resistances());
         System.out.println(mon.weaknesses());
     }
+
+    public String name() {
+        return name;
+    }
 }

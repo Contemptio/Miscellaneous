@@ -7,6 +7,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import pokemon.type.Type;
+import util.EnumUtil;
 
 public class Roster {
     public static final int ROSTER_SIZE = 6;
@@ -51,12 +52,26 @@ public class Roster {
         }
         return new ArrayList<Type>(weaknesses);
     }
-    
+
+    public List<Type> missingStrengths() {
+        return EnumUtil.complement(Type.class, strengths());
+    }
+
+    public List<Type> missingResistances() {
+        return EnumUtil.complement(Type.class, resistances());
+    }
+
+    public List<Type> missingWeaknesses() {
+        return EnumUtil.complement(Type.class, weaknesses());
+    }
+
     @Override
     public String toString() {
-        StringBuilder string = new StringBuilder("[");
+        StringBuilder string = new StringBuilder("[\n");
         for (Pokemon mon : roster) {
-            
+            Type type2 = mon.type2();
+            string.append(
+                    "    " + mon.name() + ": " + mon.type1() + (type2 != Type.NO_TYPE ? ", " + type2 : "") + "\n");
         }
         return string.append("]").toString();
     }
@@ -68,8 +83,8 @@ public class Roster {
             new Pokemon("Test5", "Fairy", "Fire"), new Pokemon("Test6", "Grass", "Water"),
         };
         Roster team = new Roster(mons);
-        System.out.println(team.strengths());
-        System.out.println(team.resistances());
-        System.out.println(team.weaknesses());
+        System.out.println(team.missingStrengths());
+        System.out.println(team.missingResistances());
+        System.out.println(team.missingWeaknesses());
     }
 }
