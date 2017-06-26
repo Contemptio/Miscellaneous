@@ -18,10 +18,10 @@ public class BooleanOption extends Option<Boolean> {
      * @see Option#Option(String, Object)
      */
     @SuppressWarnings("boxing")
-    BooleanOption(String name, boolean defaultValue) {
+    public BooleanOption(String name, boolean defaultValue) {
         super(name, defaultValue);
     }
-    
+
     /**
      * Constructs a string option.
      * 

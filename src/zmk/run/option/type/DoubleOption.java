@@ -17,7 +17,7 @@ public class DoubleOption extends Option<Double> {
      *            The default value of the option.
      * @see Option#Option(String, Object)
      */
-    DoubleOption(String name, double value) {
+    public DoubleOption(String name, double value) {
         super(name, value);
     }
 

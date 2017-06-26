@@ -144,4 +144,8 @@ public abstract class Option<T> {
         throw new IllegalArgumentException(
                 "Expected primitive type, got " + value + " of class " + value.getClass().getSimpleName());
     }
+
+    public static Option<?> nullOption() {
+        return NullOption.instance();
+    }
 }

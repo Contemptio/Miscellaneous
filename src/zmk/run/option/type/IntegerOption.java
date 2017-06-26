@@ -17,14 +17,14 @@ public class IntegerOption extends Option<Integer> {
      *            The default value of the option.
      * @see Option#Option(String, Object)
      */
-    IntegerOption(String name, int value) {
+    public IntegerOption(String name, int value) {
         super(name, value);
     }
 
     public boolean isType(int value) {
         return true;
     }
-    
+
     @Override
     public boolean isType(Integer value) {
         return true;

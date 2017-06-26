@@ -2,7 +2,11 @@ package zmk.run.option;
 
 import java.util.List;
 
+import zmk.run.option.type.BooleanOption;
+import zmk.run.option.type.DoubleOption;
+import zmk.run.option.type.IntegerOption;
 import zmk.run.option.type.Option;
+import zmk.run.option.type.StringOption;
 
 /**
  * Interface for {@code OptionFactory}s, i.e. program-specific factories that
@@ -57,4 +61,18 @@ interface Options {
      *         the option with the name {@code name}.
      */
     Option<?> get(String option);
+
+    public static Option<?> create(String name, Object defaultValue) {
+        if (defaultValue instanceof Boolean) {
+            return new BooleanOption(name, (boolean) defaultValue);
+        } else if (defaultValue instanceof Double) {
+            return new DoubleOption(name, (double) defaultValue);
+        } else if (defaultValue instanceof Integer) {
+            return new IntegerOption(name, (int) defaultValue);
+        } else if (defaultValue instanceof String) {
+            return new StringOption(name, defaultValue.toString());
+        }
+        return Option.nullOption();
+    }
+
 }

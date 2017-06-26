@@ -3,9 +3,7 @@ package zmk.run.option;
 import zmk.run.option.type.Option;
 
 public interface OptionSpecification {
-    OptionSpecification[] values = null;
+    String optionName();
 
     Option<?> option();
-
-    String name();
 }
