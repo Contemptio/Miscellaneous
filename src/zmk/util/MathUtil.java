@@ -1,4 +1,4 @@
-package util;
+package zmk.util;
 
 /**
  * Utility class for static mathematical functions.

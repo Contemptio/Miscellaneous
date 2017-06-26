@@ -1,8 +1,11 @@
-package file.searcher;
+package zmk.file.searcher;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import zmk.file.util.FileUtil;
 
 /**
  * Class that searches through files for matches.
@@ -18,27 +21,29 @@ public class FileSearcher {
      *            <li><PATH> - path at which to start searching.</li>
      *            <li><REGEXP> - regular expression to match.</li>
      *            </ul>
+     * @throws IOException
+     *             if there was any error reading the file specified by
+     *             {@code args[0]}.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         if (args.length < 2) {
             error("Usage: FileSearcher <PATH> <REGEXP>");
         }
 
         File path = new File(args[0]);
-        String regexp = args[1];
-
         if (!path.exists()) {
             error(path + " does not exist.");
         }
 
-        List<String> fileNames = new ArrayList<String>();
         for (File file : recursiveFileList(path)) {
             if (FileUtil.fileAsString(file).equals("")) {
-                
+                /*
+                 * TODO: implement.
+                 */
             }
         }
     }
-    
+
     /**
      * Returns {@link File} objects of all files recursively from a directory.
      * 

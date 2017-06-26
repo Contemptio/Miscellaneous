@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.TreeSet;
 
 import zmk.collection.PriorityQueue;
-import zmk.file.util.FileReadUtil;
+import zmk.file.util.FileUtil;
 
 /**
  * Runs anything.
@@ -27,7 +27,7 @@ public class Main {
     
     public final void run() {
         try {
-            for (String row : new TreeSet<String>(FileReadUtil.fileAsLines(new File(args[0])))) {
+            for (String row : new TreeSet<String>(FileUtil.fileAsLines(new File(args[0])))) {
                 System.out.println(row);
             }
         } catch (IOException e) {

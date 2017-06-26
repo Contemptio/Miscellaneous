@@ -1,10 +1,10 @@
-package pokemon;
+package zmk.game.pokemon;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import pokemon.type.Type;
+import zmk.game.pokemon.type.Type;
 
 public class Pokemon implements Comparable<Pokemon> {
     private String name;

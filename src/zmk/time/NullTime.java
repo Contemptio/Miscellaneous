@@ -1,4 +1,4 @@
-package time;
+package zmk.time;
 
 /**
  * {@code null} object for the {@link Time} class.

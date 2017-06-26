@@ -1,4 +1,4 @@
-package help.zam;
+package zmk.help.zam;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,12 +1,12 @@
-package time;
+package zmk.time;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import interfaces.NullObject;
-import util.IntegerUtil;
-import util.MathUtil;
-import util.RunUtil;
+import zmk.interfaces.NullObject;
+import zmk.util.IntegerUtil;
+import zmk.util.MathUtil;
+import zmk.util.RunUtil;
 
 /**
  * A class representing time units.

@@ -1,4 +1,4 @@
-package pathfinder;
+package zmk.rpg.pathfinder;
 
 import java.util.ArrayList;
 import java.util.Collections;

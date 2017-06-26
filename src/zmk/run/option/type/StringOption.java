@@ -17,7 +17,7 @@ public class StringOption extends Option<String> {
      *            The default value of the option.
      * @see Option#Option(String, Object)
      */
-    StringOption(String name, String defaultValue) {
+    public StringOption(String name, String defaultValue) {
         super(name, defaultValue);
     }
 

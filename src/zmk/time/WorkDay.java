@@ -1,4 +1,4 @@
-package time;
+package zmk.time;
 
 import java.util.ArrayList;
 import java.util.Arrays;

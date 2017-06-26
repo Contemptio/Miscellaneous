@@ -1,4 +1,4 @@
-package humor;
+package zmk.humour;
 
 public class Number {
     private String value = "";

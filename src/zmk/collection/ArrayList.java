@@ -1,9 +1,12 @@
 package zmk.collection;
 
+import java.util.List;
+
 /**
  * Extension of {@link java.util.ArrayList}.
  * 
  * @author Zimon Kuhs
+ * @date 2017-05-13
  *
  * @param <T>
  *            The type of element in the list.

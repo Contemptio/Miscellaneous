@@ -1,4 +1,4 @@
-package interfaces;
+package zmk.interfaces;
 
 /**
  * Interface for {@code Null} objects.

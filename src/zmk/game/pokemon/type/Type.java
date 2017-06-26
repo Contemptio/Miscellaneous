@@ -1,4 +1,4 @@
-package pokemon.type;
+package zmk.game.pokemon.type;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import pokemon.Pokemon;
+import zmk.game.pokemon.Pokemon;
 
 /**
  * Pokemon types.

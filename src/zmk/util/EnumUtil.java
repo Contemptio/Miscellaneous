@@ -1,4 +1,4 @@
-package util;
+package zmk.util;
 
 import java.util.ArrayList;
 import java.util.EnumSet;

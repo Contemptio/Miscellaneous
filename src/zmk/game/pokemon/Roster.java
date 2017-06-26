@@ -1,4 +1,4 @@
-package pokemon;
+package zmk.game.pokemon;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import pokemon.type.Type;
-import util.EnumUtil;
+import zmk.game.pokemon.type.Type;
+import zmk.util.EnumUtil;
 
 public class Roster {
     public static final int ROSTER_SIZE = 6;
