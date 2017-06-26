@@ -33,7 +33,7 @@ public class FileSearcher {
 
         List<String> fileNames = new ArrayList<String>();
         for (File file : recursiveFileList(path)) {
-            if (fileAsString(file).equals("")) {
+            if (FileUtil.fileAsString(file).equals("")) {
                 
             }
         }

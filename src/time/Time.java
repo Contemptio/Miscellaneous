@@ -36,7 +36,7 @@ public class Time implements Comparable<Time>, NullObject {
     public static final int HOURS_PER_DAY = 24;
 
     private static final int[] constants = {
-        SEC_PER_MIN, MIN_PER_HOUR, HOURS_PER_DAY
+            SEC_PER_MIN, MIN_PER_HOUR, HOURS_PER_DAY
     };
 
     private int days;
@@ -71,26 +71,28 @@ public class Time implements Comparable<Time>, NullObject {
      *            The time units.
      */
     public Time(int... times) {
-        ms = stringToTime(times);
+        setTime(times);
+    }
+
+    private void updateMillis() {
+        ms = milliseconds + MS_PER_SEC * (seconds + SEC_PER_MIN * (minutes + MIN_PER_HOUR * hours));
     }
 
     /**
-     * Converts 
+     * Converts
+     * 
      * @param times
      * @return
      */
-    private long stringToTime(int... times) {
+    private static int[] stringToTime(String time) {
+        int[] times = IntegerUtil.parseInteger(time.split(":"));
         int[] actual = new int[4];
 
         for (int i = 0; i < times.length; ++i) {
             actual[i] = times[i];
         }
-        this.hours = actual[0];
-        this.minutes = actual[1];
-        this.seconds = actual[2];
-        this.milliseconds = actual[3];
 
-        return milliseconds + MS_PER_SEC * (seconds + SEC_PER_MIN * (minutes + MIN_PER_HOUR * hours));
+        return actual;
     }
 
     /**
@@ -104,7 +106,7 @@ public class Time implements Comparable<Time>, NullObject {
      *            expected to be separated by ':'.
      */
     public Time(String string) {
-        this(IntegerUtil.parseInteger(string.split(":")));
+        this(stringToTime(string));
     }
 
     /**
@@ -270,14 +272,49 @@ public class Time implements Comparable<Time>, NullObject {
      *         the time length as hours.
      */
     public double hours() {
-        return ((double) ms) / (MS_PER_SEC * SEC_PER_MIN * MIN_PER_HOUR);
+        return Time.asHours(this);
     }
 
+    /**
+     * Retrieves the time length as hours.
+     * 
+     * @param time
+     *            The {@code time} object which time to get in hours.
+     * @return
+     *         the time length as hours.
+     */
+    public static double asHours(Time time) {
+        return ((double) time.millis()) / (MS_PER_SEC * SEC_PER_MIN * MIN_PER_HOUR);
+    }
+
+    /**
+     * Retrieves the time length of string-formatted times as hours.
+     * 
+     * @param times
+     *            The strings from which to get the time in hours.
+     * @return
+     *         the time length as hours.
+     */
+    @SuppressWarnings("boxing")
     public static List<Double> asHours(String[] times) {
         List<Double> hours = new ArrayList<Double>();
+        Time tempTime = new Time();
         for (String time : times) {
-
+            tempTime.setTime(time);
+            hours.add(tempTime.hours());
         }
+        return hours;
     }
 
+    private void setTime(String time) {
+        setTime(stringToTime(time));
+    }
+
+    private void setTime(int... times) {
+        this.hours = times[0];
+        this.minutes = times[1];
+        this.seconds = times[2];
+        this.milliseconds = times[3];
+        updateMillis();
+    }
 }
